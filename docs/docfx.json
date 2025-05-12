@@ -1,0 +1,28 @@
+{
+  "metadata": [
+    {
+      "src": [
+        { "files": ["../Gemstone.PQDIF/Gemstone.PQDIF.csproj"], "cwd": ".." }
+      ],
+      "dest": "api",
+      "properties": {
+        "TargetFramework": "net6.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      { "files": ["articles/**.md"] },
+      { "files": ["api/**.yml"] }
+    ],
+    "resource": [
+      { "files": ["images/**"] }
+    ],
+    "globalMetadata": {
+      "_appTitle": "Gemstone.PQDIF Documentation",
+      "_disableContribution": true
+    },
+    "dest": "_site",
+    "template": ["default"]
+  }
+}
