@@ -1,0 +1,22 @@
+name: "Docs"
+on: [push, pull_request]
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+      - name: Generate Docs
+        run: |
+          cd docs
+          docfx metadata
+          docfx build
+      - name: Deploy to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: docs/_site
